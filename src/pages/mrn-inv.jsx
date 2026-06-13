@@ -251,13 +251,18 @@ function CoupleSection() {
 // ─── SAVE THE DATE (countdown dengan progress bar) ───────────────────────────
 function CountUnit({ value, label }) {
   return (
-    <div className="text-center">
+    <div className=" flex flex-col items-center">
+
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+      
       <div className="relative">
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[#3A0B12] border border-[#D4AF37]/60 flex items-center justify-center shadow-lg">
+        
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#3A0B12] border border-[#D4AF37]/60 flex items-center justify-center shadow-lg">
           <span className="text-3xl md:text-4xl font-light text-[#D4AF37]">{String(value).padStart(2, "0")}</span>
         </div>
+
       </div>
+
       <p className="text-xs text-[#D4AF37] mt-3">{label}</p>
     </div>
   );
@@ -276,14 +281,14 @@ function SaveTheDateSection() {
     <section className="py-16 px-6 text-center bg-[#3A0B12] relative">
       <MaroonGlow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96" />
       <Reveal>
-        <h2 className="lg:text-4xl mb-4 font-primary text-white">Save The Date</h2>
+        <h2 className="text-[32px] lg:text-4xl mb-4 font-primary text-white">Save The Date</h2>
 
         <div className="mt-12 mb-24 sm:mt-14 lg:mt-8 lg:mb-8">
           <MaroonDivider />
         </div>
 
         {/* <p className="text-[#5E1A2B] text-sm tracking-wide">{DATA.akadDate}</p> */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-12">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-12">
           <CountUnit value={t.days} label="Hari" />
           <CountUnit value={t.hours} label="Jam" />
           <CountUnit value={t.minutes} label="Menit" />
