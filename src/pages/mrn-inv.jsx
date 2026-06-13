@@ -11,14 +11,14 @@ import { BsInstagram } from "react-icons/bs";
 const DATA = {
   groom: { name: "Raphael", fullName: "Raphael Aldino", initial: "R", parents: "Bapak Drs. Agus Prasetyo & Ibu Siti Rahmawati", instagram: "@raphael.aldino" },
   bride: { name: "Seraphina", fullName: "Seraphina Kirana", initial: "S", parents: "Bapak Kirana Wijaya & Ibu dr. Dewi Kusuma", instagram: "@seraphina.laila" },
-  akadDate: "Sabtu, 14 Juni 2025",
-  akadTime: "08:00 – 10:00 WIB",
+  akadDate: "Sabtu, 17 Juli 2025",
+  akadTime: "08:00 – Selesai",
   resepsiDate: "Sabtu, 14 Juni 2025",
-  resepsiTime: "11:00 – 17:00 WIB",
+  resepsiTime: "10:00 – Selesai",
   venue: "The Grand Ballroom, Hotel Majapahit",
   address: "Jl. Tunjungan No.65, Surabaya, Jawa Timur",
   mapsUrl: "https://maps.google.com",
-  weddingDate: new Date("2026-06-14T08:00:00"),
+  weddingDate: new Date("2026-07-17T08:00:00"),
   bankAccounts: [
     { bank: "Muamalat", name: "Raphael Aldino", number: "0987 6543 21" }
   ],
@@ -265,11 +265,13 @@ function CountUnit({ value, label }) {
 
 function SaveTheDateSection() {
   const t = useCountdown(DATA.weddingDate);
+  
   const addCal = () => {
     const s = DATA.weddingDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     const e = new Date(DATA.weddingDate.getTime() + 9 * 3600000).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+${DATA.groom.name}+%26+${DATA.bride.name}&dates=${s}/${e}&location=${encodeURIComponent(DATA.address)}`, "_blank");
   };
+
   return (
     <section className="py-16 px-6 text-center bg-[#3A0B12] relative">
       <MaroonGlow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96" />
@@ -311,7 +313,7 @@ function EventCard({ icon, title, date, time, delay = 0 }) {
           <h3 className="text-2xl font-primary text-[#3A0B12]">{title}</h3>
           <div className="w-10 h-px bg-[#D4AF37] my-3" />
 
-          <p className="text-sm text-[#D4AF37]">{date}</p>
+          <p className="text-sm text-[#D4AF37]">{time}</p>
         </div>
 
       </div>
@@ -338,7 +340,7 @@ function WeddingDaySection() {
 
       <div className="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto mt-12">
         <EventCard icon={<GiRing />} title="Akad Nikah" date={DATA.akadDate} time={DATA.akadTime} delay={0} />
-        <EventCard icon={<img src="/mrn.png" alt="" className="w-7" />} title="Resepsi" date={DATA.resepsiDate} time={DATA.resepsiTime} delay={0.15} />
+        <EventCard icon={<img src="mrn.png" alt="" className="w-7" />} title="Resepsi" date={DATA.resepsiTime} time={DATA.resepsiTime} delay={0.15} />
       </div>
 
       <Reveal delay={0.3} className="mt-16 text-center max-w-md mx-auto">
