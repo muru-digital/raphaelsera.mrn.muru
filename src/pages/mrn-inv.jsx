@@ -253,10 +253,8 @@ function CountUnit({ value, label }) {
   return (
     <div className=" flex flex-col items-center">
 
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-      
       <div className="relative">
-        
+
         <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#3A0B12] border border-[#D4AF37]/60 flex items-center justify-center shadow-lg">
           <span className="text-3xl md:text-4xl font-light text-[#D4AF37]">{String(value).padStart(2, "0")}</span>
         </div>
@@ -270,7 +268,7 @@ function CountUnit({ value, label }) {
 
 function SaveTheDateSection() {
   const t = useCountdown(DATA.weddingDate);
-  
+
   const addCal = () => {
     const s = DATA.weddingDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     const e = new Date(DATA.weddingDate.getTime() + 9 * 3600000).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
@@ -279,8 +277,12 @@ function SaveTheDateSection() {
 
   return (
     <section className="py-16 px-6 text-center bg-[#3A0B12] relative">
+
       <MaroonGlow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+
       <Reveal>
+
         <h2 className="text-[32px] lg:text-4xl mb-4 font-primary text-white">Save The Date</h2>
 
         <div className="mt-12 mb-24 sm:mt-14 lg:mt-8 lg:mb-8">
@@ -329,6 +331,7 @@ function EventCard({ icon, title, date, time, delay = 0 }) {
 function WeddingDaySection() {
   return (
     <section className="py-16 px-6 bg-gradient-to-br from-[#2D0710] to-[#3A0B12] relative">
+
       <BackgroundPattern />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
